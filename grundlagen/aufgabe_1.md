@@ -33,11 +33,9 @@ Compare results with previous runs; failures indicate regressions.
 
 ## Example of a software error (bug)
 
-A bug is a defect in the code that causes incorrect behavior when executed.
-
-Example: In a Java method that calculates the average of an array, the developer divides by array.length - 1 instead of array.length.
-For an array {2, 4, 6}, the correct average is 4, but the buggy code calculates 12 / 2 = 6.
-That is a software error in the implementation.
+public boolean isAdult(int age) {
+    return age > 18; // BUG
+}
 
 ### Example of a software deficiency (requirement/quality deficiency)
 
