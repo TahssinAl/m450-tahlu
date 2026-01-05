@@ -34,3 +34,37 @@
 
 - Official JUnit 5 User Guide:  
   https://junit.org/junit5/docs/current/user-guide/
+
+
+# Banken Simulation – Kurzinfo
+
+## Bank
+- verwaltet Konten (TreeMap<String, Account>)
+- erstellt Konten: Savings, PromoYouthSavings, Salary
+- Methoden: create..., deposit(), withdraw(), getBalance(), print(), Top/Bottom5
+
+## Account (abstract)
+- Felder: id, balance, bookings
+- Methoden: getId(), getBalance(), deposit(), withdraw(), print()
+- Transaktionen nur in zeitlich richtiger Reihenfolge (canTransact)
+
+## Booking
+- speichert Betrag + Datum
+- wird bei jeder Transaktion angelegt
+- print() gibt Buchungszeile aus
+
+## SalaryAccount
+- erweitert Account
+- hat creditLimit (Überzugslimite)
+- withdraw() erlaubt Minus bis Grenze
+
+## Savings / PromoYouthSavings
+- Spezialkonten mit angepasstem Verhalten
+
+## BankUtils
+- Formatierung von Betrag & Datum
+
+## Ablauf
+1. Konto erstellen
+2. Geld einzahlen / abheben
+3. Auszüge drucken oder Top/Bottom anzeigen
