@@ -10,5 +10,5 @@ Wir haben Postman Collection Runner verwendet, um Lasttests auf das Backend zu m
 
 ### Beobachtungen
 - Alle Requests lieferten HTTP 200
-- Antwortzeiten zwischen 20–50 ms
+- Antwortzeiten zwischen 5–20 ms
 - Server blieb stabil
