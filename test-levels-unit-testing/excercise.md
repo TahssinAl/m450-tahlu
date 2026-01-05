@@ -15,9 +15,6 @@
 - **@BeforeAll / @AfterAll**  
   - Run once per test class (e.g. start/stop database or server). Methods must be `static`.
 
-- **@DisplayName**  
-  Gives a readable name for a test in reports/IDE.
-
 - **@Nested**  
   Group related tests inside an inner class for better structure.
 
