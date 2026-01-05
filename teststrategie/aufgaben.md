@@ -49,7 +49,7 @@
 
 ### 2. Methods used for White-Box Testing
 
-We tested or would test the following methods with JUnit:
+We would test the following methods with JUnit:
 
 - `Account.deposit(double amount)`
 - `Account.withdraw(double amount)`
