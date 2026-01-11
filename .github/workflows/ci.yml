@@ -29,14 +29,12 @@ jobs:
           cache: "maven"
 
       - name: Build + Test (generate JaCoCo)
-        run: |
-          cd recipe-planner-backend
-          mvn -B clean verify
+        run: mvn -B -f ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/pom.xml clean verify
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: recipe-planner-backend/target/site/jacoco
+          path: ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco
 
       - name: Deploy to GitHub Pages
         id: deployment
