@@ -16,6 +16,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,18 +28,23 @@ jobs:
           java-version: "20"
           cache: "maven"
 
-      - name: Build + Test (generate JaCoCo)
+      # OPTIONAL aber extrem hilfreich zum Debuggen falls Pfad doch anders ist
+      - name: Debug repo structure
         run: |
-          cd recipe-planner-backend
-          mvn -B clean verify
+          pwd
+          ls -la
+          find . -maxdepth 4 -name pom.xml
+
+      - name: Build + Test (generate JaCoCo)
+        working-directory: ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend
+        run: mvn -B clean verify
 
       - name: Prepare Pages folder
         run: |
           rm -rf public
           mkdir -p public/jacoco
-          cp -r recipe-planner-backend/target/site/jacoco/* public/jacoco/
+          cp -r ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco/* public/jacoco/
 
-          # Root page -> direkt zum Report
           cat > public/index.html <<'EOF'
           <!doctype html>
           <html>
