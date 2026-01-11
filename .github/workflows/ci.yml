@@ -2,7 +2,7 @@ name: Publish JaCoCo to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["tah-dev"]
 
 permissions:
   contents: read
