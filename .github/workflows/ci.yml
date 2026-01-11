@@ -16,6 +16,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -28,13 +31,6 @@ jobs:
           java-version: "20"
           cache: "maven"
 
-      # OPTIONAL aber extrem hilfreich zum Debuggen falls Pfad doch anders ist
-      - name: Debug repo structure
-        run: |
-          pwd
-          ls -la
-          find . -maxdepth 4 -name pom.xml
-
       - name: Build + Test (generate JaCoCo)
         working-directory: ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend
         run: mvn -B clean verify
@@ -44,7 +40,6 @@ jobs:
           rm -rf public
           mkdir -p public/jacoco
           cp -r ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco/* public/jacoco/
-
           cat > public/index.html <<'EOF'
           <!doctype html>
           <html>
@@ -65,4 +60,5 @@ jobs:
           path: public
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
