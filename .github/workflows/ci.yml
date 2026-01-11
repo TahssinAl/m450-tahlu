@@ -14,8 +14,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy: 
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    defaults:
+      run:
+        working-directory: recipe-planner-backend
 
     steps:
       - name: Checkout
@@ -29,12 +36,15 @@ jobs:
           cache: "maven"
 
       - name: Build + Test (generate JaCoCo)
-        run: mvn -B -f ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/pom.xml clean verify
+        run: mvn -B clean verify
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco
+          path: recipe-planner-backend/target/site/jacoco
 
       - name: Deploy to GitHub Pages
         id: deployment
