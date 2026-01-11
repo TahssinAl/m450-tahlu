@@ -1,0 +1,12 @@
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/RecipePlannerApplication.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/entities/RecipeEntity.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/service/RecipeService.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/repository/RecipeRepository.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/domain/Unit.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/mapper/CommonMapperConfig.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/mapper/IngredientEntityMapper.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/mapper/RecipeEntityMapper.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/domain/Recipe.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/entities/IngredientEntity.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/domain/Ingredient.java
+/Users/tahssin-val/Downloads/recipe-planner-fronend-and-backend/recipe-planner-backend/src/main/java/ch/tbz/recipe/planner/controller/RecipeController.java
