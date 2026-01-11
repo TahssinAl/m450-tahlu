@@ -2,7 +2,7 @@ name: Publish JaCoCo to Pages
 
 on:
   push:
-    branches: ["tah-dev"]
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -25,16 +25,18 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
-          java-version: "21"
+          java-version: "20"
           cache: "maven"
 
       - name: Build + Test (generate JaCoCo)
-        run: mvn -B clean verify
+        run: |
+          cd recipe-planner-backend
+          mvn -B clean verify
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: target/site/jacoco
+          path: recipe-planner-backend/target/site/jacoco
 
       - name: Deploy to GitHub Pages
         id: deployment
