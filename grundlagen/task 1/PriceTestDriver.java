@@ -9,7 +9,7 @@ public class PriceTestDriver {
         double price = calculatePrice(20000, 0, 0, 0, 0);
         return price == 20000;
     }
-
+ 
     static boolean test2() {
         double price = calculatePrice(30000, 0, 0, 0, 10);
         return Math.abs(price - 27000) < 0.01;
