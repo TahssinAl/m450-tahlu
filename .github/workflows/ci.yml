@@ -1,4 +1,4 @@
-name: Publish JaCoCo to Pages
+name: son
 
 on:
   push:
