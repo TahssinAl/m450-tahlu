@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-01-12T10:56:02+0100",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260101-2150, environment: Java 21.0.9 (Eclipse Adoptium)"
+    date = "2026-01-12T11:04:20+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.2 (Oracle Corporation)"
 )
 @Component
 public class RecipeEntityMapperImpl implements RecipeEntityMapper {
@@ -25,11 +25,11 @@ public class RecipeEntityMapperImpl implements RecipeEntityMapper {
 
         Recipe recipe = new Recipe();
 
-        recipe.setDescription( recipeEntity.getDescription() );
         recipe.setId( recipeEntity.getId() );
+        recipe.setName( recipeEntity.getName() );
+        recipe.setDescription( recipeEntity.getDescription() );
         recipe.setImageUrl( recipeEntity.getImageUrl() );
         recipe.setIngredients( ingredientEntityListToIngredientList( recipeEntity.getIngredients() ) );
-        recipe.setName( recipeEntity.getName() );
 
         return recipe;
     }
@@ -42,11 +42,11 @@ public class RecipeEntityMapperImpl implements RecipeEntityMapper {
 
         RecipeEntity recipeEntity = new RecipeEntity();
 
-        recipeEntity.setDescription( recipe.getDescription() );
         recipeEntity.setId( recipe.getId() );
+        recipeEntity.setName( recipe.getName() );
+        recipeEntity.setDescription( recipe.getDescription() );
         recipeEntity.setImageUrl( recipe.getImageUrl() );
         recipeEntity.setIngredients( ingredientListToIngredientEntityList( recipe.getIngredients() ) );
-        recipeEntity.setName( recipe.getName() );
 
         return recipeEntity;
     }
@@ -58,11 +58,11 @@ public class RecipeEntityMapperImpl implements RecipeEntityMapper {
 
         Ingredient ingredient = new Ingredient();
 
-        ingredient.setAmount( ingredientEntity.getAmount() );
-        ingredient.setComment( ingredientEntity.getComment() );
         ingredient.setId( ingredientEntity.getId() );
         ingredient.setName( ingredientEntity.getName() );
+        ingredient.setComment( ingredientEntity.getComment() );
         ingredient.setUnit( ingredientEntity.getUnit() );
+        ingredient.setAmount( ingredientEntity.getAmount() );
 
         return ingredient;
     }
@@ -87,11 +87,11 @@ public class RecipeEntityMapperImpl implements RecipeEntityMapper {
 
         IngredientEntity ingredientEntity = new IngredientEntity();
 
-        ingredientEntity.setAmount( ingredient.getAmount() );
-        ingredientEntity.setComment( ingredient.getComment() );
         ingredientEntity.setId( ingredient.getId() );
         ingredientEntity.setName( ingredient.getName() );
+        ingredientEntity.setComment( ingredient.getComment() );
         ingredientEntity.setUnit( ingredient.getUnit() );
+        ingredientEntity.setAmount( ingredient.getAmount() );
 
         return ingredientEntity;
     }
