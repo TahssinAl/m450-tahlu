@@ -36,7 +36,7 @@ jobs:
         run: mvn -B clean verify
 
       - name: Prepare Pages folder
-        run: |
+        run: | 
           rm -rf public
           mkdir -p public/jacoco
           cp -r ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco/* public/jacoco/
