@@ -32,14 +32,14 @@ jobs:
           cache: "maven"
 
       - name: Build + Test (generate JaCoCo)
-        working-directory: ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend
+        working-directory: CI-CD-Pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend
         run: mvn -B clean verify
 
       - name: Prepare Pages folder
         run: |
           rm -rf public
           mkdir -p public/jacoco
-          cp -r ci-cd-pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco/* public/jacoco/
+          cp -r CI-CD-Pipeline/recipe-planner-fronend-and-backend/recipe-planner-backend/target/site/jacoco/* public/jacoco/
           cat > public/index.html <<'EOF'
           <!doctype html>
           <html>
