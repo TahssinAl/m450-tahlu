@@ -2,7 +2,7 @@ name: son
 
 on:
   push:
-    branches: ["*"]
+    branches: ["son-lukas"]
 
 permissions:
   contents: read
