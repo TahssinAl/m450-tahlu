@@ -1,10 +1,11 @@
 package ch.tbz.recipe.planner.mapper;
 
-import org.mapstruct.InjectionStrategy;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.ReportingPolicy;
 
-@MapperConfig(componentModel = "spring"
+@MapperConfig(
+        componentModel = "spring",
+        unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
-public class CommonMapperConfig {
+public interface CommonMapperConfig {
 }
