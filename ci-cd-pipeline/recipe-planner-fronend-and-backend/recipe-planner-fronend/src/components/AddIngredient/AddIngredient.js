@@ -1,46 +1,47 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './AddIngredient.css';
-import {Button, Col, Form, Row} from "react-bootstrap";
+import React from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 
-const AddIngredient = ({ingredients, ingredient, updateIngredient, removeIngredient}) => {
+const AddIngredient = ({ ingredient, updateIngredient, removeIngredient }) => {
+    const onChange = (field) => (e) => {
+        updateIngredient({ ...ingredient, [field]: e.target.value });
+    };
 
     return (
         <Row>
             <Col>
-                <Form.Group className="mb-1" controlId="formBasicName">
-                    <Form.Control placeholder="Name"/>
-                </Form.Group>
+                <Form.Control
+                    placeholder="Name"
+                    value={ingredient.ingredient || ""}
+                    onChange={onChange("ingredient")}
+                />
             </Col>
+
             <Col>
-                <Form.Group className="mb-1" controlId="formBasicUnit">
-                    <Form.Select>
-                        <option>PIECE</option>
-                        <option>GRAMM</option>
-                        <option>KILOGRAMM</option>
-                        <option>LITRE</option>
-                        <option>DECILITRE</option>
-                    </Form.Select>
-                </Form.Group>
+                <Form.Select value={ingredient.unit || "PIECE"} onChange={onChange("unit")}>
+                    <option value="PIECE">PIECE</option>
+                    <option value="GRAMM">GRAMM</option>
+                    <option value="KILOGRAMM">KILOGRAMM</option>
+                    <option value="LITRE">LITRE</option>
+                    <option value="DECILITRE">DECILITRE</option>
+                </Form.Select>
             </Col>
+
             <Col>
-                <Form.Group className="mb-1" controlId="quantity">
-                    <Form.Control placeholder="Quantity"/>
-                </Form.Group>
+                <Form.Control
+                    placeholder="Quantity"
+                    type="number"
+                    value={ingredient.quantity === null || ingredient.quantity === undefined ? "" : ingredient.quantity}
+                    onChange={onChange("quantity")}
+                />
             </Col>
+
             <Col xs={1}>
-                <Button
-                    onClick={e => removeIngredient(ingredient)}
-                    variant='outline-dark'
-                    className="mb-1"
-                >x</Button>
+                <Button type="button" variant="outline-dark" onClick={() => removeIngredient(ingredient)}>
+                    x
+                </Button>
             </Col>
         </Row>
-    )
-}
-
-AddIngredient.propTypes = {};
-
-AddIngredient.defaultProps = {};
+    );
+};
 
 export default AddIngredient;
