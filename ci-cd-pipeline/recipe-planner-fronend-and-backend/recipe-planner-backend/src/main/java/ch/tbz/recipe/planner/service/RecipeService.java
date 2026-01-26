@@ -34,4 +34,25 @@ public class RecipeService {
         var createdRecipe = repository.save(mapper.domainToEntity(recipe));
         return mapper.entityToDomain(createdRecipe);
     }
+
+    public Recipe updateRecipe(UUID recipeId, Recipe recipe) {
+        RecipeEntity existing = repository.findById(recipeId)
+                .orElseThrow(() -> new IllegalArgumentException("Recipe not found: " + recipeId));
+
+        RecipeEntity incoming = mapper.domainToEntity(recipe);
+
+        // keep the existing ID
+        existing.setName(incoming.getName());
+        existing.setDescription(incoming.getDescription());
+        existing.setImageUrl(incoming.getImageUrl());
+
+        // replace ingredients list (orphanRemoval will delete old ones)
+        existing.getIngredients().clear();
+        if (incoming.getIngredients() != null) {
+            existing.getIngredients().addAll(incoming.getIngredients());
+        }
+
+        RecipeEntity saved = repository.save(existing);
+        return mapper.entityToDomain(saved);
+    }
 }

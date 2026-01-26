@@ -22,7 +22,7 @@ class IngredientEntityMapperTest {
 
         IngredientEntity entity = new IngredientEntity();
         entity.setId(UUID.randomUUID());
-        entity.setName("Tomato");     // adapt to your real fields
+        entity.setName("Tomato");
         entity.setAmount(2);
 
         Ingredient domain = mapper.entityToDomain(entity);
